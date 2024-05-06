@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @body_part %>
+
+<div>
+  <%= link_to "Edit this body part", edit_body_part_path(@body_part) %> |
+  <%= link_to "Back to body parts", body_parts_path %>
+
+  <%= button_to "Destroy this body part", @body_part, method: :delete %>
+</div>
