@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Body parts</h1>
+
+<div id="body_parts">
+  <% @body_parts.each do |body_part| %>
+    <%= render body_part %>
+    <p>
+      <%= link_to "Show this body part", body_part %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New body part", new_body_part_path %>

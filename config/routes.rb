@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :categories
+  resources :body_parts
+  resources :sizes
   resources :outfits
   resources :pieces
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
