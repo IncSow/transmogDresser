@@ -1,4 +1,5 @@
 class OutfitsController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create destroy]
   before_action :set_outfit, only: %i[ show edit update destroy ]
 
   # GET /outfits or /outfits.json
@@ -22,7 +23,7 @@ class OutfitsController < ApplicationController
   # POST /outfits or /outfits.json
   def create
     @outfit = Outfit.new(outfit_params)
-
+    @outfit.user = current_user
     respond_to do |format|
       if @outfit.save
         format.html { redirect_to outfit_url(@outfit), notice: "Outfit was successfully created." }
