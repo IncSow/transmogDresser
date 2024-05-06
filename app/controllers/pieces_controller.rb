@@ -1,4 +1,5 @@
 class PiecesController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create destroy]
   before_action :set_piece, only: %i[ show edit update destroy ]
 
   # GET /pieces or /pieces.json
