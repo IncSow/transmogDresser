@@ -1,29 +1,20 @@
 <%# simple_form_for :piece do | f | %>
   <%#= f.input :name %>
 <%# end %>
-<%= form_with(model: piece) do |form| %>
+<%= form_with(model: piece, class: "flex justify-center") do |form| %>
 
   <%= render "partials/forms/form", model: piece do %>
-
-    <%= render "partials/forms/text_input", f: form, field: :name, placeholder: "Grunge Tshirt..."%>
+    <%= render "partials/forms/title", title: :"Add a piece"%>
+    <%= render "partials/forms/text_input", f: form, field: :piece_name, placeholder: "Grunge Tshirt..."%>
     <%= render "partials/forms/text_input", f: form, field: :origin %>
-    <%= render "partials/forms/text_input", f: form, field: :buy_link %>
     <%= render "partials/forms/text_input", f: form, field: :size_id %>
-    <%= render "partials/forms/text_input", f: form, field: :name %>
+    <%= render "partials/forms/text_input", f: form, field: :style_id %>
+    <%= render "partials/forms/text_input", f: form, field: :bodypart_id %>
 
-    <div>
-      <%= form.label :body_part_id, style: "display: block" %>
-      <%= form.number_field :body_part_id %>
-    </div>
+    <%= render "partials/forms/text_input", f: form, field: :"affiliate_link_(optionnal)" %>
+    <%= render "partials/forms/check_box", f: form, label_text: "Make private" %>
 
-    <div>
-      <%= form.label :visibility, style: "display: block" %>
-      <%= form.check_box :visibility %>
-    </div>
-
-    <div>
-      <%= form.submit %>
-    </div>
+    <%= render "partials/forms/buttons", f: form, submit: :"Create a new piece" %>
 
   <% end %>
 
