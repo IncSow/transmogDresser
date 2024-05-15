@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class OutfitsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create destroy]
-  before_action :set_outfit, only: %i[ show edit update destroy ]
+  before_action :set_outfit, only: %i[show edit update destroy]
 
   # GET /outfits or /outfits.json
   def index
@@ -8,8 +10,7 @@ class OutfitsController < ApplicationController
   end
 
   # GET /outfits/1 or /outfits/1.json
-  def show
-  end
+  def show; end
 
   # GET /outfits/new
   def new
@@ -17,8 +18,7 @@ class OutfitsController < ApplicationController
   end
 
   # GET /outfits/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /outfits or /outfits.json
   def create
@@ -26,7 +26,7 @@ class OutfitsController < ApplicationController
     @outfit.user = current_user
     respond_to do |format|
       if @outfit.save
-        format.html { redirect_to outfit_url(@outfit), notice: "Outfit was successfully created." }
+        format.html { redirect_to outfit_url(@outfit), notice: 'Outfit was successfully created.' }
         format.json { render :show, status: :created, location: @outfit }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class OutfitsController < ApplicationController
   def update
     respond_to do |format|
       if @outfit.update(outfit_params)
-        format.html { redirect_to outfit_url(@outfit), notice: "Outfit was successfully updated." }
+        format.html { redirect_to outfit_url(@outfit), notice: 'Outfit was successfully updated.' }
         format.json { render :show, status: :ok, location: @outfit }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,19 +53,20 @@ class OutfitsController < ApplicationController
     @outfit.destroy!
 
     respond_to do |format|
-      format.html { redirect_to outfits_url, notice: "Outfit was successfully destroyed." }
+      format.html { redirect_to outfits_url, notice: 'Outfit was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_outfit
-      @outfit = Outfit.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def outfit_params
-      params.require(:outfit).permit(:name, :visibility, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_outfit
+    @outfit = Outfit.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def outfit_params
+    params.require(:outfit).permit(:name, :visibility, :user_id)
+  end
 end

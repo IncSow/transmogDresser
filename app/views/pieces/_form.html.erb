@@ -1,47 +1,32 @@
-<%= form_with(model: piece) do |form| %>
-  <% if piece.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(piece.errors.count, "error") %> prohibited this piece from being saved:</h2>
-
-      <ul>
-        <% piece.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :origin, style: "display: block" %>
-    <%= form.text_field :origin %>
-  </div>
-
-  <div>
-    <%= form.label :buy_link, style: "display: block" %>
-    <%= form.text_field :buy_link %>
-  </div>
-
-  <div>
-    <%= form.label :size_id, style: "display: block" %>
-    <%= form.number_field :size_id %>
-  </div>
-
-  <div>
-    <%= form.label :body_part_id, style: "display: block" %>
-    <%= form.number_field :body_part_id %>
-  </div>
-
-  <div>
-    <%= form.label :visibility, style: "display: block" %>
-    <%= form.check_box :visibility %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+<%= simple_form_for piece do | f | %>
+  <%= f.input :name %>
 <% end %>
+
+
+<%#= form_with(model: piece) do |form| %>
+
+  <%#= render "partials/forms/form", model: piece do %>
+
+    <%#= render "partials/forms/text_input", f: form, field: :name, placeholder: "Grunge Tshirt..."%>
+    <%#= render "partials/forms/text_input", f: form, field: :origin %>
+    <%#= render "partials/forms/text_input", f: form, field: :buy_link %>
+    <%#= render "partials/forms/text_input", f: form, field: :size_id %>
+    <%#= render "partials/forms/text_input", f: form, field: :name %>
+
+<!--    <div>-->
+      <%#= form.label :body_part_id, style: "display: block" %>
+      <%#= form.number_field :body_part_id %>
+<!--    </div>-->
+
+<!--    <div>-->
+      <%#= form.label :visibility, style: "display: block" %>
+      <%#= form.check_box :visibility %>
+<!--    </div>-->
+
+<!--    <div>-->
+      <%#= form.submit %>
+<!--    </div>-->
+
+  <%# end %>
+
+<%# end %>

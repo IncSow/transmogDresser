@@ -1,0 +1,10 @@
+<%
+  placeholder ||= ""
+  label ||= false
+%>
+<div class="w-1/2 flex items-center justify-center flex-col">
+<%= if label %>
+  <%= f.label field, style: "display: block" %>
+<% end %>
+  <%= f.input_field field, placeholder: placeholder  %>
+</div>
