@@ -5,3 +5,12 @@
 <h1> <%= @outfits_amount %> </h1>
 <h1> <%= @pieces_amount %> </h1>
 
+<% @latest_clothes.each do | piece |%>
+    <h2> <%= piece.name%> </h2>
+<% end %>
+
+
+<% @latest_outfits.each do | outfit |%>
+    <h2> <%= outfit.name%> </h2>
+<% end %>
+
