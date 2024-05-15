@@ -2,18 +2,19 @@
 <%# simple_form_for :piece do | f | %>
   <%#= f.input :name %>
 <%# end %>
-<%= form_with(model: piece, class: "flex justify-center") do |form| %>
+<%= simple_form_for(piece, html: { class: "flex justify-center"}) do |form| %>
 
   <%= render "partials/forms/form", model: piece do %>
     <%= render "partials/forms/title", title: :"Add a piece"%>
-    <%= render "partials/forms/text_input", f: form, field: :piece_name, placeholder: "Grunge Tshirt..."%>
+    <%= render "partials/forms/text_input", f: form, field: :name, placeholder: "Grunge Tshirt..."%>
     <%= render "partials/forms/text_input", f: form, field: :origin %>
-    <%= render "partials/forms/text_input", f: form, field: :size_id %>
-    <%= render "partials/forms/text_input", f: form, field: :style_id %>
-    <%= render "partials/forms/text_input", f: form, field: :bodypart_id %>
+    <%= render "partials/forms/dropdown", f: form, field: :size %>
+    <%= render "partials/forms/dropdown", f: form, field: :category %>
+    <%= render "partials/forms/dropdown", f: form, field: :body_part %>
 
-    <%= render "partials/forms/text_input", f: form, field: :"affiliate_link_(optionnal)" %>
-    <%= render "partials/forms/check_box", f: form, label_text: "Make private" %>
+
+    <%= render "partials/forms/text_input", f: form, field: :buy_link %>
+    <%= render "partials/forms/check_box", f: form, field: :visibility,  label_text: "Make private" %>
 
     <%= render "partials/forms/buttons", f: form, submit: :"Create a new piece" %>
 
