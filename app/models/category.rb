@@ -1,3 +1,4 @@
 class Category < ApplicationRecord
-  belongs_to :user
+  belongs_to :outfit
+  belongs_to :piece
 end
