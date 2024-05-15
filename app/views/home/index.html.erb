@@ -1,5 +1,5 @@
-<%= render "partials/navbar" %>
-<h1> Home for <%= current_user.to_json  %>  </h1>
 <% if !current_user%>
 <%= link_to 'Sign in', new_user_session_path %>
+<% else %>
+<h1> Home for <%= current_user.to_json  %>  </h1>
 <%end%>

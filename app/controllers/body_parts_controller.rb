@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class BodyPartsController < ApplicationController
-  before_action :set_body_part, only: %i[ show edit update destroy ]
+  before_action :set_body_part, only: %i[show edit update destroy]
 
   # GET /body_parts or /body_parts.json
   def index
@@ -7,8 +9,7 @@ class BodyPartsController < ApplicationController
   end
 
   # GET /body_parts/1 or /body_parts/1.json
-  def show
-  end
+  def show; end
 
   # GET /body_parts/new
   def new
@@ -16,8 +17,7 @@ class BodyPartsController < ApplicationController
   end
 
   # GET /body_parts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /body_parts or /body_parts.json
   def create
@@ -25,7 +25,7 @@ class BodyPartsController < ApplicationController
 
     respond_to do |format|
       if @body_part.save
-        format.html { redirect_to body_part_url(@body_part), notice: "Body part was successfully created." }
+        format.html { redirect_to body_part_url(@body_part), notice: 'Body part was successfully created.' }
         format.json { render :show, status: :created, location: @body_part }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class BodyPartsController < ApplicationController
   def update
     respond_to do |format|
       if @body_part.update(body_part_params)
-        format.html { redirect_to body_part_url(@body_part), notice: "Body part was successfully updated." }
+        format.html { redirect_to body_part_url(@body_part), notice: 'Body part was successfully updated.' }
         format.json { render :show, status: :ok, location: @body_part }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +52,20 @@ class BodyPartsController < ApplicationController
     @body_part.destroy!
 
     respond_to do |format|
-      format.html { redirect_to body_parts_url, notice: "Body part was successfully destroyed." }
+      format.html { redirect_to body_parts_url, notice: 'Body part was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_body_part
-      @body_part = BodyPart.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def body_part_params
-      params.require(:body_part).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_body_part
+    @body_part = BodyPart.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def body_part_params
+    params.require(:body_part).permit(:name)
+  end
 end
