@@ -1,0 +1,93 @@
+<div class="flex flex-col bg-slate-900 items-center justify-center">
+<div class="flex flex-row border-b border-solid border-white w-full">
+
+<div class="flex flex-col bg-slate-500 ml-2 mr-2 text-center rounded items-center w-1/2 m-6 p-3 pl-3 pr-3 overflow-hidden whitespace-no-wrap overflow-ellipsis">
+
+<%= render "partials/dashboard/profile_picture", image_path: "test.jpg", alt_text: "Your profile picture" %>
+
+<h1> <%= @user %> </h1>
+
+<div>
+<p> <%= "description user" %> </p>
+
+</div>
+
+</div>
+<div class="flex flex-col bg-slate-300 ml-2 mr-2 rounded w-1/2 m-6 justify-center">
+
+<div class="flex flex-col bg-slate-300 ml-2 mr-2 rounded m-6 text-center">
+
+<div class="">
+<label> X : </label>
+<% if @user.x.present? %>
+  <h3> <%= @user.x %> </h3>
+<% end %>
+
+</div>
+<div class="">
+<label>Instagram : </label>
+<% if @user.instagram.present? %>
+  <h3> <%= @user.instagram %> </h3>
+<% end %>
+
+</div>
+<div class="">
+<label>Pinterest :</label>
+<% if @user.pinterest.present? %>
+  <h3> <%= @user.pinterest %> </h3>
+<% end %>
+
+</div>
+
+</div>
+
+<div class="text-center">
+<h1> <%= @outfits_amount %> </h1>
+<h3> Pieces </h3>
+
+<h1> <%= @pieces_amount %> </h1>
+<h3> Outfits </h3>
+</div>
+</div>  
+
+
+
+</div>
+
+
+
+<div class="flex items-start w-full ml-6">
+<h2 class="text-white"> Latest clothes </h2>
+</div>
+
+
+
+<% @latest_clothes.each do | piece |%>
+    <div class="flex w-full p-6 overflow-scroll">
+    <%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: piece.name, name: piece.name, category: "Punk lodsqjdsqjdqsjdqlds", size: "m -32" %>
+
+
+
+
+    </div>
+<% end %>
+
+
+<div class="flex items-start w-full ml-6">
+<h1 class="text-white"> Latest outfits </h1>
+</div>
+
+
+
+<% @latest_outfits.each do | outfit |%>
+    <div class="flex w-full p-6 overflow-scroll">
+    <%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: outfit.name, name: outfit.name, category: "Punk lodsqjdsqjdqsjdqlds", size: "" %>
+
+
+
+
+    </div>
+<% end %>
+
+</div>
+
