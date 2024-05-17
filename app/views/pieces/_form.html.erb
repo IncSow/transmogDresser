@@ -1,5 +1,21 @@
-<%= simple_form_for piece do | f | %>
-  <%= f.input :name %>
+<%= simple_form_for(piece, html: { class: "flex justify-center"}) do |form| %>
+
+  <%= render "partials/forms/form", model: piece do %>
+    <%= render "partials/forms/title", title: :"Add a piece"%>
+    <%= render "partials/forms/text_input", f: form, field: :name, placeholder: "Grunge Tshirt..."%>
+    <%= render "partials/forms/text_input", f: form, field: :origin, placeholder: "Brand, handmade..." %>
+    <%= render "partials/forms/dropdown", f: form, field: :size %>
+    <%= render "partials/forms/dropdown", f: form, field: :category %>
+    <%= render "partials/forms/dropdown", f: form, field: :body_part %>
+
+
+    <%= render "partials/forms/text_input", f: form, field: :buy_link %>
+    <%= render "partials/forms/check_box", f: form, field: :visibility,  label_text: "Make private" %>
+
+    <%= render "partials/forms/buttons", f: form, submit: :"Create a new piece" %>
+
+  <% end %>
+
 <% end %>
 
 
