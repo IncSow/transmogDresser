@@ -7,8 +7,10 @@
 
 <h1> <%= @user %> </h1>
 
-<%= render "partials/dashboard/text_fields", value: "Lorem Ipsum of a big description of someone that has a lot to say about themselves bla bla bla bla bla bla yada yada" %>
+<div>
+<p> <%= @user_description %> </p>
 
+</div>
 
 </div>
 <div class="flex flex-col bg-slate-300 ml-2 mr-2 rounded w-1/2 m-6 justify-center">
@@ -18,7 +20,9 @@
 <%= render "partials/dashboard/h3", label: "X", value: @user_X %>
 <%= render "partials/dashboard/h3", label: "Instagram", value: @user_instagram %>
 <%= render "partials/dashboard/h3", label: "Pinterest", value: @user_pinterest %>
+
 </div>
+
 <div class="text-center">
 <h1> <%= @outfits_amount %> </h1>
 <h3> Pieces </h3>
@@ -36,7 +40,7 @@
 <h1> <%= @latest_outfits %> </h1>
 
 <div class="flex items-start w-full ml-6">
-<h1 class="text-white"> Latest clothes </h1>
+<h2 class="text-white"> Latest clothes </h2>
 </div>
 
 
