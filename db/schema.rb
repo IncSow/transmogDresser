@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.1].define(version: 2024_05_17_162200) do
+=======
+ActiveRecord::Schema[7.1].define(version: 2024_05_17_143915) do
+>>>>>>> 90086440be743f9ca9aa1a806d80b247d19696a9
   create_table "body_parts", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class PiecesController < ApplicationController
   before_action :authenticate_user!, only: %i[new create destroy]
-  before_action :set_piece, only: %i[ show edit update destroy ]
+  before_action :set_piece, only: %i[show edit update destroy]
 
   # GET /pieces or /pieces.json
   def index
@@ -8,8 +10,7 @@ class PiecesController < ApplicationController
   end
 
   # GET /pieces/1 or /pieces/1.json
-  def show
-  end
+  def show; end
 
   # GET /pieces/new
   def new
@@ -17,8 +18,7 @@ class PiecesController < ApplicationController
   end
 
   # GET /pieces/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /pieces or /pieces.json
   def create
@@ -26,7 +26,7 @@ class PiecesController < ApplicationController
 
     respond_to do |format|
       if @piece.save
-        format.html { redirect_to piece_url(@piece), notice: "Piece was successfully created." }
+        format.html { redirect_to piece_url(@piece), notice: 'Piece was successfully created.' }
         format.json { render :show, status: :created, location: @piece }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class PiecesController < ApplicationController
   def update
     respond_to do |format|
       if @piece.update(piece_params)
-        format.html { redirect_to piece_url(@piece), notice: "Piece was successfully updated." }
+        format.html { redirect_to piece_url(@piece), notice: 'Piece was successfully updated.' }
         format.json { render :show, status: :ok, location: @piece }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,19 +53,20 @@ class PiecesController < ApplicationController
     @piece.destroy!
 
     respond_to do |format|
-      format.html { redirect_to pieces_url, notice: "Piece was successfully destroyed." }
+      format.html { redirect_to pieces_url, notice: 'Piece was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_piece
-      @piece = Piece.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def piece_params
-      params.require(:piece).permit(:name, :origin, :buy_link, :size_id, :body_part_id, :visibility)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_piece
+    @piece = Piece.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def piece_params
+    params.require(:piece).permit(:name, :origin, :buy_link, :size_id, :body_part_id, :visibility)
+  end
 end

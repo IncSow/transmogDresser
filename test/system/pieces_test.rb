@@ -1,51 +1,53 @@
-require "application_system_test_case"
+# frozen_string_literal: true
+
+require 'application_system_test_case'
 
 class PiecesTest < ApplicationSystemTestCase
   setup do
     @piece = pieces(:one)
   end
 
-  test "visiting the index" do
+  test 'visiting the index' do
     visit pieces_url
-    assert_selector "h1", text: "Pieces"
+    assert_selector 'h1', text: 'Pieces'
   end
 
-  test "should create piece" do
+  test 'should create piece' do
     visit pieces_url
-    click_on "New piece"
+    click_on 'New piece'
 
-    fill_in "Body part", with: @piece.body_part_id
-    fill_in "Buy link", with: @piece.buy_link
-    fill_in "Name", with: @piece.name
-    fill_in "Origin", with: @piece.origin
-    fill_in "Size", with: @piece.size_id
-    check "Visibility" if @piece.visibility
-    click_on "Create Piece"
+    fill_in 'Body part', with: @piece.body_part_id
+    fill_in 'Buy link', with: @piece.buy_link
+    fill_in 'Name', with: @piece.name
+    fill_in 'Origin', with: @piece.origin
+    fill_in 'Size', with: @piece.size_id
+    check 'Visibility' if @piece.visibility
+    click_on 'Create Piece'
 
-    assert_text "Piece was successfully created"
-    click_on "Back"
+    assert_text 'Piece was successfully created'
+    click_on 'Back'
   end
 
-  test "should update Piece" do
+  test 'should update Piece' do
     visit piece_url(@piece)
-    click_on "Edit this piece", match: :first
+    click_on 'Edit this piece', match: :first
 
-    fill_in "Body part", with: @piece.body_part_id
-    fill_in "Buy link", with: @piece.buy_link
-    fill_in "Name", with: @piece.name
-    fill_in "Origin", with: @piece.origin
-    fill_in "Size", with: @piece.size_id
-    check "Visibility" if @piece.visibility
-    click_on "Update Piece"
+    fill_in 'Body part', with: @piece.body_part_id
+    fill_in 'Buy link', with: @piece.buy_link
+    fill_in 'Name', with: @piece.name
+    fill_in 'Origin', with: @piece.origin
+    fill_in 'Size', with: @piece.size_id
+    check 'Visibility' if @piece.visibility
+    click_on 'Update Piece'
 
-    assert_text "Piece was successfully updated"
-    click_on "Back"
+    assert_text 'Piece was successfully updated'
+    click_on 'Back'
   end
 
-  test "should destroy Piece" do
+  test 'should destroy Piece' do
     visit piece_url(@piece)
-    click_on "Destroy this piece", match: :first
+    click_on 'Destroy this piece', match: :first
 
-    assert_text "Piece was successfully destroyed"
+    assert_text 'Piece was successfully destroyed'
   end
 end
