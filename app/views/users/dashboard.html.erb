@@ -3,12 +3,12 @@
 
 <div class="flex flex-col bg-slate-500 ml-2 mr-2 text-center rounded items-center w-1/2 m-6 p-3 pl-3 pr-3 overflow-hidden whitespace-no-wrap overflow-ellipsis">
 
-<%= render "partials/dashboard/profile_picture", image_path: "test.jpg", alt_text: "Placeholder" %>
+<%= render "partials/dashboard/profile_picture", image_path: "test.jpg", alt_text: "Your profile picture" %>
 
 <h1> <%= @user %> </h1>
 
 <div>
-<p> <%= @user_description %> </p>
+<p> <%= "description user" %> </p>
 
 </div>
 
@@ -17,9 +17,27 @@
 
 <div class="flex flex-col bg-slate-300 ml-2 mr-2 rounded m-6 text-center">
 
-<%= render "partials/dashboard/h3", label: "X", value: @user_X %>
-<%= render "partials/dashboard/h3", label: "Instagram", value: @user_instagram %>
-<%= render "partials/dashboard/h3", label: "Pinterest", value: @user_pinterest %>
+<div class="">
+<label> X : </label>
+<% if @user.x.present? %>
+  <h3> <%= @user.x %> </h3>
+<% end %>
+
+</div>
+<div class="">
+<label>Instagram : </label>
+<% if @user.instagram.present? %>
+  <h3> <%= @user.instagram %> </h3>
+<% end %>
+
+</div>
+<div class="">
+<label>Pinterest :</label>
+<% if @user.pinterest.present? %>
+  <h3> <%= @user.pinterest %> </h3>
+<% end %>
+
+</div>
 
 </div>
 
@@ -36,35 +54,22 @@
 
 </div>
 
-<h1> <%= @latest_clothes %> </h1>
-<h1> <%= @latest_outfits %> </h1>
+
 
 <div class="flex items-start w-full ml-6">
 <h2 class="text-white"> Latest clothes </h2>
 </div>
 
 
-<div class="flex w-full p-6 overflow-scroll">
 
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "Punk lodsqjdsqjdqsjdqlds", size: "m -32" %>
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "placeholder", size: "m -32" %>
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "placeholder", size: "m -32" %>
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "placeholder", size: "m -32" %>
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "placeholder", size: "m -32" %>
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "placeholder", size: "m -32" %>
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "placeholder", size: "m -32" %>
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "placeholder", size: "m -32" %>
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "placeholder", size: "m -32" %>
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "placeholder", size: "m -32" %>
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "placeholder", size: "m -32" %>
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "placeholder", size: "m -32" %>
-
-
-</div>
 <% @latest_clothes.each do | piece |%>
+    <div class="flex w-full p-6 overflow-scroll">
+    <%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: piece.name, name: piece.name, category: "Punk lodsqjdsqjdqsjdqlds", size: "m -32" %>
 
 
-    <h2> <%= piece.name%> </h2>
+
+
+    </div>
 <% end %>
 
 
@@ -73,26 +78,15 @@
 </div>
 
 
-<div class="flex w-full p-6 overflow-scroll border-t border-solid border-white">
-
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "Punk lodsqjdsqjdqsjdqlds", size: "m -32" %>
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "placeholder", size: "m -32" %>
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "placeholder", size: "m -32" %>
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "placeholder", size: "m -32" %>
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "placeholder", size: "m -32" %>
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "placeholder", size: "m -32" %>
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "placeholder", size: "m -32" %>
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "placeholder", size: "m -32" %>
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "placeholder", size: "m -32" %>
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "placeholder", size: "m -32" %>
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "placeholder", size: "m -32" %>
-<%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: "Placeholder", name: "placeholder", category: "placeholder", size: "m -32" %>
-
-
-</div>
 
 <% @latest_outfits.each do | outfit |%>
-    <h2> <%= outfit.name%> </h2>
+    <div class="flex w-full p-6 overflow-scroll">
+    <%= render "partials/dashboard/piece", image_path: "test.jpg", alt_text: outfit.name, name: outfit.name, category: "Punk lodsqjdsqjdqsjdqlds", size: "" %>
+
+
+
+
+    </div>
 <% end %>
 
 </div>

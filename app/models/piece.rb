@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Piece < ApplicationRecord
-<<<<<<< HEAD  belongs_to :user
+    belongs_to :user
 
     has_many :body_part
     has_many :category
